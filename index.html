@@ -6,6 +6,9 @@
 <title>Spring Ball 2027</title>
 <meta name="robots" content="noindex">
 <meta name="apple-mobile-web-app-title" content="Spring Ball">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#211c18">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -25,14 +28,18 @@ h1{margin:0;font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:u
   <img src="icon-192.png" alt="">
   <h1>Spring Ball 2027</h1>
   <a class="go" id="go" href="https://script.google.com/macros/s/AKfycbxWbGMsth0qK1dECLVPzPcy7mRF1KGOrbv4LKb5j28WFD2Cc9iX-k-LOQw1tEAv3kE_/exec">Open the committee hub</a>
-  <p class="tip" id="tip"><b>Keep it on your phone:</b> tap the gold button first, sign in, and add the hub itself to your home screen. On iPhone, tap Share in Safari (the square with the arrow), then <b>Add to Home Screen</b>. On Android, tap the three dots in Chrome, then <b>Add to Home screen</b>. Saved from the hub, it opens as an app and stays signed in.</p>
+  <p class="tip" id="tip"><b>Keep it on your phone:</b> on this page, tap Share in Safari (the square with the arrow), then <b>Add to Home Screen</b>. On Android, tap the three dots in Chrome, then <b>Add to Home screen</b>. The ball icon then opens the hub straight away.</p>
 </main>
 <script>
   // Short link and home-screen icon for the committee hub (Google Apps Script). No data here.
-  // Computers go straight to the hub. Phones stay on this page to read the tip: the hub itself
-  // is what goes on the home screen (saved from here, sign-in would leave for the browser).
+  // Computers go straight to the hub. Phones in the browser stay on this page so it can be added
+  // to the home screen with the ball icon. Opened from the home screen (standalone), it goes
+  // straight on to the hub inside the same app window.
+  var hub = document.getElementById('go').href;
   var phone = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
-  if (!phone) location.replace(document.getElementById('go').href);
+  var standalone = navigator.standalone === true ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if (!phone || standalone) location.replace(hub);
 </script>
 </body>
 </html>
