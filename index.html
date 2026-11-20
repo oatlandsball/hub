@@ -25,12 +25,12 @@ h1{margin:0;font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:u
   <img src="icon-192.png" alt="">
   <h1>Spring Ball 2027</h1>
   <a class="go" id="go" href="https://script.google.com/macros/s/AKfycbxWbGMsth0qK1dECLVPzPcy7mRF1KGOrbv4LKb5j28WFD2Cc9iX-k-LOQw1tEAv3kE_/exec">Open the committee hub</a>
-  <p class="tip" id="tip"><b>Keep it on your phone:</b> on this page, tap the Share button in Safari (the square with the arrow), scroll down and choose <b>Add to Home Screen</b>. On Android, use the three dots in Chrome, then <b>Add to Home screen</b>.</p>
+  <p class="tip" id="tip"><b>Keep it on your phone:</b> tap the gold button first, sign in, and add the hub itself to your home screen. On iPhone, tap Share in Safari (the square with the arrow), then <b>Add to Home Screen</b>. On Android, tap the three dots in Chrome, then <b>Add to Home screen</b>. Saved from the hub, it opens as an app and stays signed in.</p>
 </main>
 <script>
   // Short link and home-screen icon for the committee hub (Google Apps Script). No data here.
-  // Computers go straight to the hub. Phones stay on this page so it can be added to the home
-  // screen with the ball icon; one tap opens the hub.
+  // Computers go straight to the hub. Phones stay on this page to read the tip: the hub itself
+  // is what goes on the home screen (saved from here, sign-in would leave for the browser).
   var phone = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
   if (!phone) location.replace(document.getElementById('go').href);
 </script>
