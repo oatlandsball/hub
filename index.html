@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spring Ball 2027</title>
 <meta name="robots" content="noindex">
 <meta name="apple-mobile-web-app-title" content="Spring Ball">
@@ -11,22 +11,28 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
-html,body{margin:0;height:100%;background:#211c18;color:#d8bb7a;font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:16px}
-img{width:96px;height:96px;border-radius:22px}
-a{color:#f0d998}
+html,body{margin:0;min-height:100%;background:#211c18;color:#e9dcc0;font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Inter,sans-serif}
+main{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px 16px;box-sizing:border-box}
+img{width:112px;height:112px;border-radius:26px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+h1{margin:0;font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;background:linear-gradient(105deg,#a37a33,#e9cf8c 45%,#b98e3d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.go{display:inline-block;padding:14px 34px;border-radius:10px;background:linear-gradient(105deg,#7a5923,#c79a45 35%,#f0d998 50%,#b98e3d 65%,#6f5020);color:#211c18;font-weight:700;text-decoration:none;letter-spacing:.02em}
+.tip{max-width:330px;font-size:13px;color:#b9a988}
+.tip b{color:#e9dcc0}
 </style>
 </head>
 <body>
 <main>
   <img src="icon-192.png" alt="">
-  <div>Opening the Spring Ball 2027 committee hub...</div>
-  <a id="go" href="https://script.google.com/macros/s/AKfycbxWbGMsth0qK1dECLVPzPcy7mRF1KGOrbv4LKb5j28WFD2Cc9iX-k-LOQw1tEAv3kE_/exec">Tap here if it does not open</a>
+  <h1>Spring Ball 2027</h1>
+  <a class="go" id="go" href="https://script.google.com/macros/s/AKfycbxWbGMsth0qK1dECLVPzPcy7mRF1KGOrbv4LKb5j28WFD2Cc9iX-k-LOQw1tEAv3kE_/exec">Open the committee hub</a>
+  <p class="tip" id="tip"><b>Keep it on your phone:</b> on this page, tap the Share button in Safari (the square with the arrow), scroll down and choose <b>Add to Home Screen</b>. On Android, use the three dots in Chrome, then <b>Add to Home screen</b>.</p>
 </main>
 <script>
-  // The committee hub runs on Google Apps Script. This page only gives it a short link and a
-  // home-screen icon. It holds no data; the hub itself checks who is signed in.
-  setTimeout(function () { location.replace(document.getElementById('go').href); }, 150);
+  // Short link and home-screen icon for the committee hub (Google Apps Script). No data here.
+  // Computers go straight to the hub. Phones stay on this page so it can be added to the home
+  // screen with the ball icon; one tap opens the hub.
+  var phone = /iphone|ipad|ipod|android/i.test(navigator.userAgent);
+  if (!phone) location.replace(document.getElementById('go').href);
 </script>
 </body>
 </html>
